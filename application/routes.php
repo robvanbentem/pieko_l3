@@ -34,10 +34,6 @@
 
 Route::controller(Controller::detect());
 
-Route::get('/', function()
-{
-	return View::make('home.index');
-});
 
 /*
 |--------------------------------------------------------------------------
@@ -111,3 +107,6 @@ Route::filter('auth', function()
 {
 	if (Auth::guest()) return Redirect::to('login');
 });
+
+// Route for Auth_Controller
+Route::controller('auth');

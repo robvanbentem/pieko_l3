@@ -15,3 +15,5 @@ This app is originally intended to keep track of shopping expenses at my work.
 * Check laravel documentation for framework setup
 * Run laravel migrations ```php artisan migrate``` make sure you have migrations set up (```php artisan migrate:install```)
 * Login with admin@domain.com / changeme
+
+Make sure to checkout the laravel framework, it awesome :)

@@ -3,7 +3,6 @@
 /**
  * @author Rob van Bentem.
  * @when 14-12-2012 5:53 PM
- * @package Unifact
  */
 
 ?>
@@ -11,7 +10,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Bootstrap, from Twitter</title>
+    <title>{{ $shared_title }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">

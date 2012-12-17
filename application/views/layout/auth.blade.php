@@ -3,14 +3,13 @@
 /**
  * @author Rob van Bentem.
  * @when 17-12-2012 4:15 PM
- * @package Unifact
  */
 
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Sign in &middot; Twitter Bootstrap</title>
+    <title>Sign in &middot; {{ Config::get('pieko.appname') }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">

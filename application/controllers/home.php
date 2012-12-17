@@ -32,6 +32,7 @@ class Home_Controller extends App_Controller {
 
 	public function action_index()
 	{
+        $this->title("Home ");
 		return View::make('home.index');
 	}
 

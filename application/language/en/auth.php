@@ -3,7 +3,6 @@
 /**
  * @author Rob van Bentem.
  * @when 17-12-2012 4:53 PM
- * @package Unifact
  */
 
 return array(

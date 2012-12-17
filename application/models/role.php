@@ -3,7 +3,6 @@
 /**
  * @author Rob van Bentem.
  * @when 17-12-2012 3:08 PM
- * @package Unifact
  */
 class Role extends EloquentExt
 {

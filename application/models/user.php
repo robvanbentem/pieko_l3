@@ -24,4 +24,13 @@ class User extends EloquentExt {
         }
         return trim($this->firstname) . " " . trim($this->lastname);
     }
+
+    public function roles()
+    {
+        return $this->has_many_and_belongs_to('Role', 'user_roles', 'user_id', 'role_id');
+    }
+
+    public function has_role($role_name){
+        return $this->roles()->where('roles.name', '=', $role_name)->count() === 1 ? true : false;
+    }
 }

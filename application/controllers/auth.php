@@ -29,8 +29,11 @@ class Auth_Controller extends Base_Controller {
 	{
         Auth::logout();
 
-        return Redirect::to_action('auth')
-            ->with('logout', true);
+        return Redirect::to_action('auth');
 	}
+
+    public function action_disabled(){
+        return View::make('auth.disabled');
+    }
 
 }

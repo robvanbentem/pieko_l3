@@ -88,6 +88,19 @@ Event::listen('500', function()
 |
 */
 
+
+Route::filter('pattern: ^((?!auth).)*$', array('name' => 'auth', function()
+{
+    if (Auth::guest()) {
+        return Redirect::to_action('auth');
+    }
+
+    if(Auth::user() !== null && Auth::user()->has_role('login') === false){
+        Auth::logout();
+        return Redirect::to_action('auth@disabled');
+    }
+}));
+
 Route::filter('before', function()
 {
 	// Do stuff before every request to your application...
@@ -105,8 +118,8 @@ Route::filter('csrf', function()
 
 Route::filter('auth', function()
 {
-	if (Auth::guest()) return Redirect::to('login');
+	if (Auth::guest()) return Redirect::to('auth');
 });
 
 // Route for Auth_Controller
-Route::controller('auth');
+// Route::controller('auth');

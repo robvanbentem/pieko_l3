@@ -32,10 +32,6 @@ class Home_Controller extends App_Controller {
 
 	public function action_index()
 	{
-        if(Auth::user() === null){
-            return Redirect::to_action('auth');
-        }
-
 		return View::make('home.index');
 	}
 

@@ -2,6 +2,9 @@
 
 This app is originally intended to keep track of shopping expenses at my work.
 
+## Current status
+Currently this app is not ready for use
+
 ## Features
 * Grocery list - multiple users and shops
 * Register receipts - keep track of who bought what for whom

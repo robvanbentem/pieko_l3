@@ -7,8 +7,8 @@
 
 return array(
     'disabled' => array(
-        'title' => 'Access denied',
-        'message' => 'Your account has been disabled',
+        'title' => 'Access suspended',
+        'message' => 'Your account has been suspended',
         'goback' => 'Go back'
     )
 );

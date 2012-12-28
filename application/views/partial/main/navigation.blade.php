@@ -17,6 +17,9 @@
 
             <div class="nav-collapse collapse pull-right">
                 <ul class="nav">
+                    @if( Auth::user()->has_role('admin'))
+                    <li><a href="{{ URL::to_action('admin') }}">{{ __('pieko.common.admin') }}</a></li>
+                    @endif
                     <li><a href="{{ URL::to_action('account') }}">{{ Auth::user()->fullname() }}</a></li>
                 </ul>
             </div><!--/.nav-collapse -->

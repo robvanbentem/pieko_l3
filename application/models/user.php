@@ -6,12 +6,13 @@
 class User extends EloquentExt {
 
     protected $_rules = array(
-        'email' => 'required|email|unique:users',
-        'password' => 'required|same:repeat|min:8',
-        'repeat' => 'required|same:password',
-        'firstname' => 'max:32',
+        'email' => 'required|email|unique:users,email',
+        'password' => 'required|min:8',
+        'firstname' => 'required|max:32',
         'lastname' => 'max:64',
     );
+
+    public static $hidden = array('password');
 
     /**
      * Returns the prettified full name of a user
@@ -28,6 +29,14 @@ class User extends EloquentExt {
     public function roles()
     {
         return $this->has_many_and_belongs_to('Role', 'user_roles', 'user_id', 'role_id');
+    }
+
+    public function roles_array(){
+        $roles = $this->roles()->get();
+
+        return array_map(function($role) {
+            return $role->id;
+        }, $roles);
     }
 
     public function has_role($role_name){

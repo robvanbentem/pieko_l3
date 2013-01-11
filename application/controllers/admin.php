@@ -6,6 +6,11 @@
  */
 class Admin_Controller extends App_Controller
 {
+    public function before(){
+        parent::before();
+        $this->title(__('pieko.common.admin'));
+    }
+
     public function action_index()
     {
 
@@ -32,6 +37,8 @@ class Admin_Controller extends App_Controller
 
     public function action_user($action, $id = null)
     {
+        $this->title(__('pieko.common.user'));
+
         if (Request::method() === "POST") {
             switch ($action) {
                 case 'create':
@@ -100,6 +107,12 @@ class Admin_Controller extends App_Controller
 
             $user->save();
 
+            // Set the user roles
+            $user->roles()->delete();
+            foreach (Input::get('roles') as $role_id) {
+                $user->roles()->attach($role_id);
+            }
+
             return Redirect::to_action('admin@user', array('update', $user->id));
         } else {
             return Redirect::to_action('admin@user', array('update', $user->id))
@@ -131,7 +144,12 @@ class Admin_Controller extends App_Controller
 
             $user->save();
 
-            return Redirect::to_action('admin@user', array('select', $user->id));
+            // Set the user roles
+            foreach (Input::get('roles') as $role_id) {
+                $user->roles()->attach(Role::find($role_id));
+            }
+
+            return Redirect::to_action('admin@user', array('update', $user->id));
         } else {
             return Redirect::to_action('admin@user', array('create'))
                 ->with_input()

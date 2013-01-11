@@ -9,7 +9,8 @@ return array(
     'welcome' => 'Welcome :name! Lets spend some money and eat food!',
 
     'common' => array(
-        'admin' => 'Administration'
+        'admin' => 'Administration',
+        'user' => 'User'
     ),
 
 

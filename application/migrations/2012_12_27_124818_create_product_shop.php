@@ -16,6 +16,8 @@ class Create_Product_Shop {
 
             $table->increments('id');
             $table->string('name', 128)->unique();
+            $table->string('name_short', 128)->unique();
+            $table->string('color', 8);
             $table->text('description');
             $table->timestamps();
         });

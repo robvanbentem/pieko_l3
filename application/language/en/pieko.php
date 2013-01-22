@@ -10,18 +10,51 @@ return array(
 
     'common' => array(
         'admin' => 'Administration',
-        'user' => 'User'
+        'new' => 'New',
+        'update' => 'Update',
+        'create' => 'Create'
+
     ),
 
 
-    'user' => array(
-        'firstname' => 'Firstname',
-        'lastname' => 'Lastname',
-        'password' => 'Password',
-        'email' => 'Email',
+    /*
+     * Models
+     */
+    'model' => array(
+        'user' => array(
+            'firstname' => 'Firstname',
+            'lastname' => 'Lastname',
+            'password' => 'Password',
+            'email' => 'Email',
 
-        'singular' => 'User',
-        'plural' => 'Users'
+            'singular' => 'User',
+            'plural' => 'Users'
+        ),
+
+        'shop' => array(
+            'name' => 'Name',
+            'name_short' => 'Name short',
+            'color' => 'Color',
+            'description' => 'Description',
+
+            'singular' => 'Shop',
+            'plural' => 'Shops'
+        ),
+
+        'product' => array(
+            'name' => 'Name',
+            'name_short' => 'Name short',
+            'color' => 'Color',
+            'description' => 'Description',
+
+            'singular' => 'Product',
+            'plural' => 'Products'
+        ),
+
+        'role' => array(
+            'singular' => 'Role',
+            'plural' => 'Roles'
+        )
     ),
 
     'role' => array(
@@ -34,9 +67,6 @@ return array(
     ),
 
     'admin' => array(
-        'createuser' => 'New user',
-        'updateuser' => 'Update user',
-
         'tab' => array(
             'users' => 'Users',
             'shops' => 'Shops',

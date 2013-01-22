@@ -11,9 +11,17 @@ class Admin_Controller extends App_Controller
         $this->title(__('pieko.common.admin'));
     }
 
+    /**
+     * Users/shops/products overview
+     *
+     * @return Laravel\View
+     */
     public function action_index()
     {
 
+        $a = __('pieko.common.user');
+
+        // build user body array
         $users = User::order_by('firstname')->get();
         $users_body = array();
         foreach ($users as $user) {
@@ -30,8 +38,25 @@ class Admin_Controller extends App_Controller
         ));
 
 
+        // build shops body array
+        $shops = Shop::order_by('name')->get();
+        $shops_body = array();
+        foreach ($shops as $shop) {
+            $shops_body[] = array(
+                $shop->id,
+                $shop->name,
+                $shop->name_short,
+            );
+        }
+
+        $view_shops = View::make('admin.shops', array(
+            'body' => $shops_body
+        ));
+
+
         return View::make('admin.index', array(
-            'users' => $view_users
+            'users' => $view_users,
+            'shops' => $view_shops
         ));
     }
 
@@ -54,6 +79,33 @@ class Admin_Controller extends App_Controller
                     return $this->get_user_create();
                 case 'update':
                     return $this->get_user_update($id);
+                default:
+                    return Redirect::error(500);
+            }
+        }
+    }
+
+
+
+    public function action_shop($action, $id = null)
+    {
+        $this->title(__('pieko.model.shop.singular'));
+
+        if (Request::method() === "POST") {
+            switch ($action) {
+                case 'create':
+                    return $this->post_shop_create();
+                case 'update':
+                    return $this->post_shop_update($id);
+                default:
+                    return Redirect::error(500);
+            }
+        } else {
+            switch ($action) {
+                case 'create':
+                    return $this->get_shop_create();
+                case 'update':
+                    return $this->get_shop_update($id);
                 default:
                     return Redirect::error(500);
             }
@@ -155,5 +207,76 @@ class Admin_Controller extends App_Controller
                 ->with_input()
                 ->with_errors($v);
         }
+    }
+
+
+
+    // ---------------
+    // SHOP CREATE
+    // ---------------
+
+    private function get_shop_create()
+    {
+        return View::make('admin.shop.create');
+    }
+
+    private function post_shop_create()
+    {
+        $shop = new Shop();
+        $v = new Validator(Input::all(), $shop->rules());
+
+        if ($v->valid()) {
+            $shop->fill(Input::all());
+            $shop->save();
+
+            return Redirect::to_action('admin@shop', array('update', $shop->id));
+        } else {
+            return Redirect::to_action('admin@shop', array('create'))
+                ->with_input()
+                ->with_errors($v);
+        }
+    }
+
+
+    // ---------------
+    // SHOP UPDATE
+    // ---------------
+
+    private function get_shop_update($id)
+    {
+        $shop = Shop::find($id);
+
+        if ($shop === null) {
+            return Redirect::error(500);
+        }
+
+        return View::make('admin.shop.update', array(
+            'shop' => $shop
+        ));
+    }
+
+    private function post_shop_update($id)
+    {
+        $shop = Shop::find($id);
+
+        if ($shop === null) {
+            return Redirect::error(500);
+        }
+
+        $rules = $shop->rules();
+
+        $v = new Validator(Input::all(), $rules);
+
+        if ($v->valid()) {
+            $shop->fill(Input::all());
+            $shop->save();
+
+            return Redirect::to_action('admin@shop', array('update', $shop->id));
+        } else {
+            return Redirect::to_action('admin@shop', array('update', $shop->id))
+                ->with_input()
+                ->with_errors($v);
+        }
+
     }
 }

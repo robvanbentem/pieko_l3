@@ -14,6 +14,9 @@
 
 ini_set('display_errors', 'On');
 
+
+require_once 'helpers.php';
+
 /*
 |--------------------------------------------------------------------------
 | Laravel Configuration Loader

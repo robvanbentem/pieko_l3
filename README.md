@@ -12,7 +12,8 @@ Currently this app is not ready for use
 * Detailed overviews - user balance, total expenses
 * Common share - a common share part without specifying products, we use it to share costs of bread and spreads
 * Email notifications - at the end of the month, send out an overview mail with details how much you are owed
-* Mobile interface - easy shopping :)
+* Responsive interface - suited for any device
+* Budget management - personal budget overviews
 
 ## Instructions
 * Check laravel documentation for framework setup

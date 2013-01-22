@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h4>{{ __('pieko.common.admin') }} &raquo; {{ __('pieko.admin.updateuser') }}</h4>
+<h4>{{ __('pieko.common.admin') }} &raquo; {{ ucf(__('pieko.common.update').' '.__('pieko.model.user.singular')) }}</h4>
 
 <?php
 

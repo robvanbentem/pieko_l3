@@ -8,16 +8,16 @@ echo Tabbable::tabs_left(
     Navigation::links(
         array(
             array(
-                __('pieko.admin.tab.users'),
+                __('pieko.model.user.plural'),
                 $users,
                 true
             ),
             array(
-                __('pieko.admin.tab.shops'),
-                "<p>Howdy, I'm in Section 2.</p>"
+                __('pieko.model.shop.plural'),
+                $shops
             ),
             array(
-                __('pieko.admin.tab.products'),
+                __('pieko.model.product.plural'),
                 "<p>What up girl, this is Section 3.</p>"
             ),
         )

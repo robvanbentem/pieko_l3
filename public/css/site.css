@@ -1,0 +1,7 @@
+.show-on-tr-hover {
+    display: none;
+}
+
+tr:hover .show-on-tr-hover {
+    display: inline;
+}

@@ -1,5 +1,5 @@
 {{ Table::open() }}
-{{ Table::headers('#', (string)__('pieko.model.shop.name'), (string)__('pieko.model.shop.name_short')) }}
+{{ Table::headers('#', (string)__('pieko.model.shop.name'), (string)__('pieko.model.shop.name_short'), '') }}
 {{ Table::body($body) }}
 {{ Table::close() }}
 

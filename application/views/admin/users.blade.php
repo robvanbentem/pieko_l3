@@ -1,5 +1,5 @@
 {{ Table::open() }}
-{{ Table::headers('#', (string)__('pieko.model.user.firstname'), (string)__('pieko.model.user.lastname'), (string)__('pieko.model.user.email')) }}
+{{ Table::headers('#', (string)__('pieko.model.user.firstname'), (string)__('pieko.model.user.lastname'), (string)__('pieko.model.user.email'), (string)__('pieko.model.user.enabled')) }}
 {{ Table::body($body) }}
 {{ Table::close() }}
 

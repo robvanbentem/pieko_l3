@@ -23,7 +23,8 @@ class User extends EloquentExt {
         if($this->firstname === null) {
             return $this->email;
         }
-        return trim($this->firstname) . " " . trim($this->lastname);
+
+        return trim($this->firstname . " " . $this->lastname);
     }
 
     public function roles()

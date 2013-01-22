@@ -19,6 +19,7 @@ class Create_Table_Users {
             $table->string('password', 128);
             $table->string('firstname', 32)->nullable()->default(null);
             $table->string('lastname', 64)->nullable()->default(null);
+            $table->boolean('enabled')->default(true);
             $table->timestamps();
         });
 

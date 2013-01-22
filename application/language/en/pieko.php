@@ -12,8 +12,9 @@ return array(
         'admin' => 'Administration',
         'new' => 'New',
         'update' => 'Update',
-        'create' => 'Create'
-
+        'create' => 'Create',
+        'edit' => 'Edit',
+        'delete' => 'Delete',
     ),
 
 
@@ -26,6 +27,7 @@ return array(
             'lastname' => 'Lastname',
             'password' => 'Password',
             'email' => 'Email',
+            'enabled' => 'Enabled',
 
             'singular' => 'User',
             'plural' => 'Users'

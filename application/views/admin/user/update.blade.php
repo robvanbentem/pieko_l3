@@ -40,6 +40,13 @@ echo Form::control_group(
 );
 
 echo Form::control_group(
+    Form::label('enabled', __('pieko.user.enabled')),
+    Form::checkbox('enabled', 1, Input::old('enabled', $user->enabled)),
+    $errors->has('enabled') ? 'error' : '',
+    Form::block_help($errors->first('enabled'))
+);
+
+echo Form::control_group(
     Form::label('roles', __('pieko.role.plural')),
     Form::multiselect('roles[]', $roles, Input::old('roles', $user->roles_array()))
 );

@@ -24,10 +24,10 @@ class Create_Table_Users {
         });
 
         User::create(array(
-            'email' => 'admin@domain.com',
+            'email' => 'admin@example.com',
             'password' => Hash::make('changeme'),
-            'firstname' => 'Admin',
-            'lastname' => 'i Strator'
+            'firstname' => 'Ad',
+            'lastname' => 'Min'
         ));
 	}
 

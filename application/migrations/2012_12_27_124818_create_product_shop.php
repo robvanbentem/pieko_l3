@@ -29,6 +29,7 @@ class Create_Product_Shop {
 
             $table->increments('id');
             $table->string('name', 256);
+            $table->decimal('price', 5, 2)->nullable()->default(null);
             $table->timestamps();
         });
 
@@ -45,6 +46,13 @@ class Create_Product_Shop {
             $table->foreign('product_id')->references('id')->on('products')->on_update('CASCADE')->on_delete('CASCADE');
             $table->foreign('shop_id')->references('id')->on('shops')->on_update('CASCADE')->on_delete('CASCADE');
         });
+
+        Shop::create(array(
+            'name' => 'Supermarket',
+            'name_short' => 'Super',
+            'color' => '#66FFCC',
+            'description' => 'The local supermarket'
+        ));
 	}
 
 	/**

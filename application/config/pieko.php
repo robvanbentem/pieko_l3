@@ -7,5 +7,7 @@
  */
 
 return array(
-    'appname' => 'Pieko!'
+    'appname' => 'Pieko!',
+    'currency' => '&euro;',
+    'currency_format' => '{currency} {amount}',
 );

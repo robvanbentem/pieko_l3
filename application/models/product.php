@@ -8,10 +8,11 @@ class Product extends EloquentExt {
 
     protected $_rules = array(
         'name' => 'required',
+        'shop_id' => 'exists:shops,id'
     );
 
-    public function shops()
+    public function shop()
     {
-        return $this->has_many_and_belongs_to('Shop', 'product_shop', 'product_id', 'shop_id');
+        return $this->belongs_to('Shop');
     }
 }

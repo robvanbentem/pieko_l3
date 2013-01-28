@@ -32,7 +32,6 @@ class Admin_Shop_Controller extends App_Controller
         }
     }
 
-
     public function action_update($id)
     {
         $shop = Shop::find($id);
@@ -66,6 +65,5 @@ class Admin_Shop_Controller extends App_Controller
                 ->with_input()
                 ->with_errors($v);
         }
-
     }
 }

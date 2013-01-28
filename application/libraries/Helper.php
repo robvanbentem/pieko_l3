@@ -15,4 +15,18 @@ class Helper
     {
         return self::match_uri($uri) ? 'active' : '';
     }
+
+    public static function amount($amount)
+    {
+        $currency = Config::get('pieko.currency');
+
+        return preg_replace(array(
+            '/{currency}/',
+            '/{amount}/',
+        ), array(
+            Laravel\Config::get('pieko.currency'),
+            $amount,
+        ),
+        Laravel\Config::get('pieko.currency_format'));
+    }
 }

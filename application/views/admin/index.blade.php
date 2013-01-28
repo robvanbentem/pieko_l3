@@ -18,7 +18,7 @@ echo Tabbable::tabs_left(
             ),
             array(
                 __('pieko.model.product.plural'),
-                "<p>What up girl, this is Section 3.</p>"
+                $products
             ),
         )
     )

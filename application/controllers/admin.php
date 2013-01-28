@@ -33,7 +33,7 @@ class Admin_Controller extends App_Controller
             );
         }
 
-        $view_users = View::make('admin.users', array(
+        $view_users = View::make('admin.user.list', array(
             'body' => $users_body
         ));
 
@@ -50,14 +50,31 @@ class Admin_Controller extends App_Controller
             );
         }
 
-        $view_shops = View::make('admin.shops', array(
+        $view_shops = View::make('admin.shop.list', array(
             'body' => $shops_body
         ));
 
+        // build shops body array
+        $products = Product::order_by('name')->get();
+        $products_body = array();
+        foreach ($products as $product) {
+            $products_body[] = array(
+                $product->id,
+                $product->name,
+                Helper::amount($product->price),
+                $product->shop->name,
+                HTML::link(URL::to_action('admin@product@update', array($user->id)), lca(__('pieko.common.edit')))
+            );
+        }
+
+        $view_products = View::make('admin.product.list', array(
+            'body' => $products_body
+        ));
 
         return View::make('admin.index', array(
             'users' => $view_users,
-            'shops' => $view_shops
+            'shops' => $view_shops,
+            'products' => $view_products
         ));
     }
 }

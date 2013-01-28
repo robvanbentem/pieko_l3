@@ -8,6 +8,8 @@
 return array(
     'welcome' => 'Welcome :name! Lets spend some money and eat food!',
 
+    'currency' => '&euro;',
+
     'common' => array(
         'admin' => 'Administration',
         'new' => 'New',
@@ -45,9 +47,7 @@ return array(
 
         'product' => array(
             'name' => 'Name',
-            'name_short' => 'Name short',
-            'color' => 'Color',
-            'description' => 'Description',
+            'price' => 'Price',
 
             'singular' => 'Product',
             'plural' => 'Products'
@@ -57,11 +57,6 @@ return array(
             'singular' => 'Role',
             'plural' => 'Roles'
         )
-    ),
-
-    'role' => array(
-        'singular' => 'Role',
-        'plural' => 'Roles'
     ),
 
     'form' => array(

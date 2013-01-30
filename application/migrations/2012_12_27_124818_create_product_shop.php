@@ -33,20 +33,6 @@ class Create_Product_Shop {
             $table->timestamps();
         });
 
-        Schema::table('product_shop', function ($table) {
-            $table->engine = 'InnoDB';
-
-            $table->create();
-
-            $table->increments('id');
-            $table->integer('product_id')->unsigned();
-            $table->integer('shop_id')->unsigned();
-            $table->timestamps();
-
-            $table->foreign('product_id')->references('id')->on('products')->on_update('CASCADE')->on_delete('CASCADE');
-            $table->foreign('shop_id')->references('id')->on('shops')->on_update('CASCADE')->on_delete('CASCADE');
-        });
-
         Shop::create(array(
             'name' => 'Supermarket',
             'name_short' => 'Super',
@@ -61,10 +47,9 @@ class Create_Product_Shop {
 	 * @return void
 	 */
 	public function down()
-	{
-		Schema::drop('product_shop');
-		Schema::drop('shops');
-		Schema::drop('products');
+    {
+        Schema::drop('products');
+        Schema::drop('shops');
 	}
 
 }

@@ -16,4 +16,15 @@ class Shop extends EloquentExt {
     {
         return $this->has_many_and_belongs_to('Product', 'product_shop', 'shop_id', 'product_id');
     }
+
+    public static function get_options_array($order_by = 'name'){
+        $shops = Shop::order_by($order_by)->get();
+
+        $options = array();
+        foreach ($shops as $shop) {
+            $options[$shop->id] = $shop->name;
+        }
+
+        return $options;
+    }
 }

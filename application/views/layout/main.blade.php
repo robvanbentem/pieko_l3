@@ -15,10 +15,16 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
+    @foreach($_css as $css)
+    {{ HTML::style($css) }}
+    @endforeach
+
     {{ Asset::container('bootstrapper')->styles(); }}
     {{ Asset::container('bootstrapper')->scripts(); }}
-    {{ HTML::style('/css/site.css') }}
-    {{ HTML::style('/css/main.css') }}
+
+    @foreach($_js as $js)
+    {{ HTML::script($js) }}
+    @endforeach
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -30,8 +36,6 @@
 <body>
 
 @include('partial.main.navigation')
-
-
 
 <div class="container">
 

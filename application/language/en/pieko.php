@@ -8,6 +8,8 @@
 return array(
     'welcome' => 'Welcome :name! Lets spend some money and eat food!',
 
+    'shoplist' => 'Shoplist',
+
     'currency' => '&euro;',
 
     'common' => array(

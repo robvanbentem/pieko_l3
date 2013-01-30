@@ -8,6 +8,9 @@ class App_Controller extends Base_Controller
 {
     protected $title = '';
 
+    protected $_js = array();
+    protected $_css = array();
+
     protected function title($title, $prepend = " &middot; ")
     {
         $this->title = $title . ($prepend ? $prepend.$this->title : '');
@@ -16,11 +19,27 @@ class App_Controller extends Base_Controller
     public function before(){
         parent::before();
 
+        $this->_css[] = '/css/site.css';
+        $this->_css[] = '/css/main.css';
+
+
+        // Bootstrap datepicker: https://github.com/mgussekloo/my-bootstrap-datetimepicker
+        $this->_js[] = '/lib/datepicker/datepicker.js';
+        $this->_css[] = '/lib/datepicker/datepicker.css';
+
+        $this->_js[] = '/js/site.js';
+        $this->_js[] = '/asset/js';
+
+        View::share('_js', $this->_js);
+        View::share('_css', $this->_css);
+
+
         $this->title(Config::get('pieko.appname'), false);
     }
 
     public function after($response){
         View::share('shared_title', $this->title);
+        View::share('shared_shops', Shop::get_options_array());
 
         parent::after($response);
     }

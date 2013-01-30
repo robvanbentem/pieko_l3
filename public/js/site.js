@@ -7,13 +7,16 @@ var Groceries = function() {};
 
 Groceries.prototype.add = function(options){
     $.ajax({
-        url: '/ajax/groceries/add',
+        url: '/groceries/add',
         type: 'POST',
         dataType: 'json',
         data: options.data,
         success: options.success
     });
 };
+
+
+
 
 var GroceryView = function(options) {
     this.groceries = options.groceries;
@@ -24,6 +27,8 @@ var GroceryView = function(options) {
 
 GroceryView.prototype.add = function(e) {
     e.preventDefault();
+
+    console.log(e);
 
     this.groceries.add({
         data: {

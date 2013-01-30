@@ -1,6 +1,6 @@
 <?php
 
-class Create_Table_Shoplist {
+class Create_Table_Grocerylists {
 
 	/**
 	 * Make changes to the database.
@@ -9,7 +9,7 @@ class Create_Table_Shoplist {
 	 */
 	public function up()
 	{
-        Schema::table('grocerylist', function($table)
+        Schema::table('grocerylists', function($table)
         {
             $table->engine = 'InnoDB';
 
@@ -19,6 +19,7 @@ class Create_Table_Shoplist {
             $table->integer('user_id')->unsigned()->nullable();
             $table->integer('product_id')->unsigned()->nullable();
 
+            $table->decimal('amount', 5, 2);
             $table->date('date');
 
             $table->boolean('bought')->default(false);
@@ -42,7 +43,7 @@ class Create_Table_Shoplist {
 	 */
 	public function down()
 	{
-		Schema::drop('grocerylist');
+		Schema::drop('grocerylists');
 	}
 
 }

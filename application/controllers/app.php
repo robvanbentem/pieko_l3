@@ -19,9 +19,13 @@ class App_Controller extends Base_Controller
     public function before(){
         parent::before();
 
+        // Set the date to current date if no date is set
+        if(Session::instance()->get('date') === null){
+            Session::instance()->set('date', date('Y-m-d'));
+        }
+
         $this->_css[] = '/css/site.css';
         $this->_css[] = '/css/main.css';
-
 
         // Bootstrap datepicker: https://github.com/mgussekloo/my-bootstrap-datetimepicker
         $this->_js[] = '/lib/datepicker/datepicker.js';
